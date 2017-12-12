@@ -14,7 +14,8 @@ class MerkleTree:
 		temp_transaction = []
 		is_right_empty = False
 
-		for index in range(1, len(transaction_list), 2):
+		for index in range(0, len(transaction_list), 2):
+			is_right_empty = False
 			current_node = transaction_list[index]
 
 			if index + 1 != len(transaction_list):
@@ -44,8 +45,8 @@ class MerkleTree:
 	def get_past_transacion(self):
 		return self.past_transaction
 
-	def get_Root_leaf(self):
-		last_key = self.past_transaction.keys()[-1]
+	def get_root_hash(self):
+		last_key = list(self.past_transaction.keys())[-1]
 		return self.past_transaction[last_key]
 
 if __name__ == '__main__':
@@ -56,6 +57,7 @@ if __name__ == '__main__':
 	tree.transaction_list = transactions
 	tree.create_tree()
 
+	print ('Final root of the tree : ',tree.get_root_hash())
 	past_transaction = tree.get_past_transacion()
 	print(json.dumps(past_transaction, indent=4))
 	print ("-" * 50 )
