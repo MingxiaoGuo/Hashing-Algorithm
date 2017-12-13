@@ -13,9 +13,6 @@ class RendezvousHash(object):
         # self.nodes = []
         temp_nodes = nodes or {}
         self._nodes = nodes
-        self.my_dict = {}
-        for node in nodes:
-            self.my_dict[node] = ''
         
     
     def get_node(self, key):
