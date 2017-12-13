@@ -15,4 +15,4 @@ enter `:wq`
 
 测试代码
 
-`python3 rendevous.py`
+`python rendevous.py`
