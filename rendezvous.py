@@ -10,9 +10,7 @@ class RendezvousHash(object):
         :param nodes: a list of DB server nodes to register.
         """
         # TODO
-        # self.nodes = []
-        temp_nodes = nodes or {}
-        self._nodes = nodes
+        self.nodes = nodes
         
     
     def get_node(self, key):
@@ -25,7 +23,7 @@ class RendezvousHash(object):
         # TODO
         highest_node = None
         hash_result = {}
-        for x in self._nodes:
+        for x in self.nodes:
             temp_str = (x + key).encode('utf-8')
             hash_val = hashlib.md5(temp_str).hexdigest()
             hash_result[hash_val] = x
