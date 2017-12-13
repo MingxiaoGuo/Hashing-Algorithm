@@ -28,7 +28,7 @@ class RendezvousHash(object):
             hash_val = hashlib.md5(temp_str).hexdigest()
             hash_result[hash_val] = x
         
-        highest_key = sorted(hash_result.keys())[0]
+        highest_key = list(hash_result.keys())[0]
         highest_node = hash_result[highest_key]
         return highest_node
 
